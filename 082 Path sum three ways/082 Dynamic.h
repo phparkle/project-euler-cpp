@@ -1,4 +1,8 @@
-#include <chrono>
+// Problem 82: Path sum three ways
+// https://projecteuler.net/problem=82
+//
+// Dynamic programming approach.
+
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -8,7 +12,6 @@
 using namespace std;
 
 int main() {
-  auto start = chrono::high_resolution_clock::now();
   constexpr int N = 80;
   ifstream fin("p082_matrix.txt");
   vector<vector<int>> grid(N, vector<int>(N));
@@ -18,7 +21,6 @@ int main() {
     for (int j = 0; getline(ss, buffer, ','); ++j)
       grid[j][i] = stoi(buffer);
   }
-  auto stop1 = chrono::high_resolution_clock::now();
   vector<int> best = grid[0];
   for (int i = 1; i < N; ++i) {
     for (int j = 0; j < N; ++j)
@@ -34,10 +36,5 @@ int main() {
   for (int i = 0; i < N; ++i)
     if (best[i] < min)
       min = best[i];
-  auto stop2 = chrono::high_resolution_clock::now();
-  chrono::duration<double, std::milli> elapsed1 = stop1 - start;
-  chrono::duration<double, std::milli> elapsed2 = stop2 - stop1;
   cout << min << endl;
-  cout << elapsed1.count() << endl;
-  cout << elapsed2.count() << endl;
 }
