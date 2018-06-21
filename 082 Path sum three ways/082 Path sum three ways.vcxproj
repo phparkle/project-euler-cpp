@@ -121,6 +121,10 @@
     <Text Include="p082_matrix.txt" />
     <Text Include="p082_matrix5x5.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="082 Dijkstra.h" />
+    <ClInclude Include="082 Dynamic.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

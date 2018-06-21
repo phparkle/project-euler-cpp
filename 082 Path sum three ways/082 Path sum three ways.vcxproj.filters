@@ -23,4 +23,12 @@
     <Text Include="p082_matrix.txt" />
     <Text Include="p082_matrix5x5.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="082 Dijkstra.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="082 Dynamic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
