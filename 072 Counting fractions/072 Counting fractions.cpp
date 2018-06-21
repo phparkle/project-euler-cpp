@@ -1,5 +1,6 @@
 // Problem 72: Counting fractions
 // https://projecteuler.net/problem=72
+// Answer: 303963552391
 
 #include <iostream>
 #include <memory>

@@ -1,7 +1,7 @@
 // Problem 82: Path sum three ways
 // https://projecteuler.net/problem=82
-//
 // Dynamic programming approach.
+// Answer: 260324
 
 #include <fstream>
 #include <iostream>

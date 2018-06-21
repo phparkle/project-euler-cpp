@@ -1,5 +1,6 @@
 // Problem 70: Totient permutation
 // https://projecteuler.net/problem=70
+// Answer: 9966730
 
 #include <array>
 #include <iostream>

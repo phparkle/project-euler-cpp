@@ -1,5 +1,6 @@
 // Problem 1: Multiples of 3 and 5
 // https://projecteuler.net/problem=1
+// Answer: 233168
 
 #include <iostream>
 
@@ -11,5 +12,4 @@ int main() {
     if (i % 3 == 0 || i % 5 == 0)
       sum += i;
   cout << sum << endl;
-  getchar();
 }
