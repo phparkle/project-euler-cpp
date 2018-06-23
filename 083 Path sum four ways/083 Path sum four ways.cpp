@@ -1,9 +1,7 @@
-// Problem 82: Path sum three ways
-// https://projecteuler.net/problem=82
-// Dijkstra's algorithm approach.
-// Answer: 260324
+// Problem 83: Path sum four ways
+// https://projecteuler.net/problem=83
+// Answer: 425185
 
-#include <chrono>
 #include <fstream>
 #include <iostream>
 #include <set>
@@ -15,28 +13,26 @@ using namespace std;
 
 int main() {
   constexpr int N = 80;
-  ifstream fin("p082_matrix.txt");
+  ifstream fin("p083_matrix.txt");
   vector<int> grid(N * N);
   string buffer;
   for (int i = 0; getline(fin, buffer); ++i) {
     stringstream ss(buffer);
     for (int j = 0; getline(ss, buffer, ','); ++j)
-      grid[j * N + i] = stoi(buffer);
+      grid[i * N + j] = stoi(buffer);
   }
-  auto start = chrono::high_resolution_clock::now();
   set<pair<int, int>> next;
   vector<int> best(N * N, 1 << 30);
-  for (int i = 0; i < N; ++i) {
-    next.emplace(grid[i], i);
-    best[i] = grid[i];
-  }
+  next.emplace(grid[0], 0);
+  best[0] = grid[0];
   while (!next.empty()) {
     int x = next.begin()->second;
     next.erase(next.begin());
-    int buf[3];
+    int buf[4];
     int* adj = buf;
     if (x % N > 0)     *adj++ = x - 1;
     if (x % N < N - 1) *adj++ = x + 1;
+    if (x - N >= 0)    *adj++ = x - N;
     if (x + N < N * N) *adj++ = x + N;
     while (--adj >= buf) {
       int y = *adj;
@@ -49,12 +45,6 @@ int main() {
       }
     }
   }
-  int min = 1 << 30;
-  for (int i = N * N - N; i < N * N; ++i)
-    if (best[i] < min)
-      min = best[i];
-  auto stop = chrono::high_resolution_clock::now();
-  chrono::duration<double, milli> elapsed = stop - start;
+  int min = best[N * N - 1];
   cout << min << endl;
-  cout << elapsed.count() << "ms" << endl;
 }
