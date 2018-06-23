@@ -9,9 +9,7 @@
 using namespace std;
 
 int main() {
-  array<array<double, 8>, 21> p;
-  for (auto& row : p)
-    row.fill(0);
+  array<array<double, 8>, 21> p{};
   p[1][1] = 1;
   for (int n = 2; n <= 20; ++n) {
     for (int k = 1; k <= 7; ++k) {
